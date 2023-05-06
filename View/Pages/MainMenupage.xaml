@@ -1,0 +1,79 @@
+﻿<Page x:Class="YchetStudentov.View.Pages.MainMenupage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YchetStudentov.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainMenupage">
+
+    <Grid Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Button Name="btn_Dogovor" Click="btn_Dogovor_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="25" Background="#009999">
+                                <ContentPresenter>
+                                    <ContentPresenter.Content>
+                                        <Grid>
+                                            <DockPanel>
+                                                <Image Source="\Resources\PrepodIcon.png" DockPanel.Dock="Left"></Image>
+                                                <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="22">Преподователи</TextBlock>
+                                            </DockPanel>
+                                        </Grid>
+                                    </ContentPresenter.Content>
+                                </ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Button Name="Static" Click="Static_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="25" Background="#33cccc">
+                                <ContentPresenter>
+                                    <ContentPresenter.Content>
+                                        <Grid>
+                                            <DockPanel>
+                                                <Image DockPanel.Dock="Left" Source="\Resources\StatsIcon.png"></Image>
+                                                <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="22">Посещаемость</TextBlock>
+                                            </DockPanel>
+                                        </Grid>
+                                    </ContentPresenter.Content>
+                                </ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Button>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="25" Background="#00FFCC">
+                                <ContentPresenter>
+
+                                </ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+        <Frame Name="frame"></Frame>
+    </Grid>
+</Page>

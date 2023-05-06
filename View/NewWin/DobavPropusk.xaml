@@ -1,0 +1,68 @@
+﻿<Page x:Class="YchetStudentov.View.NewWin.DobavPropusk"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YchetStudentov.View.NewWin"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DobavPropusk">
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="550"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Дата занятия:" Margin="10"  VerticalAlignment="Center"></TextBlock>
+                <DatePicker Name="daat" SelectedDate="{Binding Data_, Mode=TwoWay}" Margin="10" BorderBrush="Transparent" Background="Transparent"/>
+                <TextBlock Text="Преподователь:" Margin="10" FontSize="14" VerticalAlignment="Center"></TextBlock>
+                <ComboBox Name="CmbPrep" Text="{Binding Prepodovatel}" SelectedItem="{Binding Prepodovatel}" DisplayMemberPath="Fam" Margin="10" Width="200"></ComboBox>
+                <TextBlock Text="Покупатель:" Margin="10" VerticalAlignment="Center"></TextBlock>
+                <ComboBox Name="CmbPred" Text="{Binding Predmet}" SelectedItem="{Binding Predmet}" DisplayMemberPath="Naim"  Margin="10" Width="200"></ComboBox>
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button IsEnabled="True" Name="btnDobavitPropusk" Click="btnDobavitPropusk_Click"  Content="Добавить студента" 
+                        Width="240" Margin="5" FontSize="14"></Button>
+                <Button IsEnabled="False" Name="btnYdalitPropusk" Click="btnYdalitPropusk_Click"  Content="Удалить студента" 
+                        Width="230" Margin="5" FontSize="14" BorderBrush="#ff2400"></Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button IsEnabled="False" Width="200" Margin="5"  Name="btnSave" Click="btnSave_Click"  Content="Сохранить" FontSize="14" Cursor="Hand"></Button>
+            </StackPanel>
+        </StackPanel>
+
+        <DataGrid Background="Transparent" Grid.Row="2" Name="DGProp" AutoGenerateColumns="False"   VerticalAlignment="Top"
+                  Margin="5"  FontSize="15" LoadingRow="DGProp_LoadingRow">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Студент" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Students.Fam}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DolList, RelativeSource={RelativeSource AncestorType = Page}}" 
+                                      SelectedItem="{Binding Students,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Fam"></ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="" Binding="{Binding Path=Students.Imya, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="" Binding="{Binding Path=Students.Otch, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Группа" Binding="{Binding Path=Students.Gruppa.Naim, Mode=OneWay}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Frame Name="frame" Grid.RowSpan="3"></Frame>
+    </Grid>
+</Page>

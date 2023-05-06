@@ -1,0 +1,31 @@
+﻿<Window x:Class="YchetStudentov.View.Windows.Proverka"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YchetStudentov.View.Windows"
+        mc:Ignorable="d"
+        Title="Proverka" Height="350" Width="400">
+    <Grid>
+        <StackPanel>
+            <TextBlock>Подтвердите учетную запись</TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock>Логин :</TextBlock>
+                <TextBox Name="Log" MinWidth="280">AA</TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock>Пароль:</TextBlock>
+                <PasswordBox Name="Pas" MinWidth="275" Password="0001"></PasswordBox>
+            </StackPanel>
+            <Button Name="Enter" Click="Enter_Click"  Width="170" Height="80">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="25" Background="#66FFCC">
+                            <ContentPresenter Content="Ввод" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
