@@ -30,7 +30,6 @@ namespace YchetStudentov.View.NewWin
         public DobavPropusk(Poseshaemost p)
         {
             InitializeComponent();
-            daat.SelectedDate = DateTime.Now.Date;
             if (p.ID != 0)
             {
                 pos = entities.Poseshaemost.Include(x => x.Sost_Poseshaem).First(y => y.ID == p.ID);
@@ -41,13 +40,13 @@ namespace YchetStudentov.View.NewWin
                 pos = p;
                 entities.Poseshaemost.Add(pos);
             }
-            DataContext = pos;
+           // DataContext = pos;
 
 
 
             DGProp.ItemsSource = entities.Sost_Poseshaem.Local.ToBindingList();
-            var preptxt = entities.Prepodovatel.Where(x => x.ID == Model.Classes.Set.user.ID).SingleOrDefault();
-            CmbPrep.Text = preptxt.Fam;
+            var preptxt = entities.Prepodovatel.Where(x => x.ID == Model.Classes.Set.user.ID).ToList();
+            CmbPrep.ItemsSource = preptxt;
             CmbPred.ItemsSource = entities.Predmet.ToList();
             cmbGrupp.ItemsSource = entities.Gruppa.ToList();
         }

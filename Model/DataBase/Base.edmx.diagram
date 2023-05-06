@@ -19,6 +19,7 @@
         <AssociationConnector Association="StudYchetModel.FK__Poseshaem__IDPre__3587F3E0" ManuallyRouted="false" />
         <AssociationConnector Association="StudYchetModel.FK__Sost_Pose__IDPos__3864608B" ManuallyRouted="false" />
         <AssociationConnector Association="StudYchetModel.FK__Sost_Pose__IDStu__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="StudYchetModel.FK_Poseshaemost_Gruppa" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

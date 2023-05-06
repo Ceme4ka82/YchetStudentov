@@ -19,6 +19,7 @@ namespace YchetStudentov.Model.DataBase
         {
             this.Facultet = new HashSet<Facultet>();
             this.Students = new HashSet<Students>();
+            this.Poseshaemost = new HashSet<Poseshaemost>();
         }
     
         public int ID { get; set; }
@@ -28,5 +29,7 @@ namespace YchetStudentov.Model.DataBase
         public virtual ICollection<Facultet> Facultet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students> Students { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Poseshaemost> Poseshaemost { get; set; }
     }
 }

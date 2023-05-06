@@ -75,8 +75,8 @@
                                             <Run Text="{Binding Prepodovatel.Otch}"></Run>
                                         </TextBlock>
                                         <TextBlock>
-                                            <Run>Предмет:</Run>
-                                            <Run Text="{Binding Students.Gruppa.Naim}"></Run>
+                                            <Run>Группа:</Run>
+                                            <Run Text="{Binding Gruppa.Naim}"></Run>
                                         </TextBlock>
                                         <TextBlock>
                                             <Run>Предмет:</Run>
