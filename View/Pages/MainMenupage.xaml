@@ -61,12 +61,19 @@
                 </Button>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="2">
-                <Button>
+                <Button Name="Stud" Click="Stud_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="25" Background="#00FFCC">
                                 <ContentPresenter>
-
+                                    <ContentPresenter.Content>
+                                        <Grid>
+                                            <DockPanel>
+                                                <Image DockPanel.Dock="Left" Source="\Resources\StatsIcon.png"></Image>
+                                                <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="22">Студенты</TextBlock>
+                                            </DockPanel>
+                                        </Grid>
+                                    </ContentPresenter.Content>
                                 </ContentPresenter>
                             </Border>
                         </ControlTemplate>

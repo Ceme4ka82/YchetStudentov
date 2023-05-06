@@ -34,5 +34,10 @@ namespace YchetStudentov.View.Pages
         {
             frame.Navigate(new View.Pages.PoceshaemPage());
         }
+
+        private void Stud_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new View.Pages.StudentPage());
+        }
     }
 }

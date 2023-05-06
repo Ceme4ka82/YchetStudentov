@@ -1,0 +1,101 @@
+﻿<Page x:Class="YchetStudentov.View.Pages.StudentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YchetStudentov.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StudentPage">
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="5">
+                    <TextBlock Text="Поиск" FontSize="25" Margin="5" VerticalAlignment="Center" ></TextBlock>
+                    <TextBox Width="200" Name="TxtName" TextChanged="TxtName_TextChanged"></TextBox>
+                </StackPanel>
+                <Button Name="ToMain" DockPanel.Dock="Right" Click="ToMain_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="35" Background="#66FFCC">
+                                <ContentPresenter Content="На главную" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Menu  Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Background="White" Foreground="Black">
+                    <MenuItem Header="Сохранить" Background="Aquamarine">
+                        <MenuItem Header="Сохранить как Word" Name="SaveWord" Click="SaveWord_Click"></MenuItem>
+                        <MenuItem Header="Сохранить как Exel" Name="SaveExel" Click="SaveExel_Click"></MenuItem>
+                    </MenuItem>
+                </Menu>
+                <Button Name="NewStud" DockPanel.Dock="Left" Width="150" Click="NewStud_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="35" Background="#66FFCC">
+                                <ContentPresenter Content="Добавить" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Name="DelStud" DockPanel.Dock="Left" Width="150" Click="DelStud_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="35" Background="#66FFCC">
+                                <ContentPresenter Content="Удалить" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <ListView Name="StudView" MouseDoubleClick="StudView_MouseDoubleClick"  FontSize="18">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <Border CornerRadius="35" Background="#66FFCC" >
+                            <Grid>
+                                <Grid.ToolTip>
+                                    <ToolTip FontSize="15">
+                                        Чтобы изменить информацию дважды нажмите на запись
+                                    </ToolTip>
+                                </Grid.ToolTip>
+                                <DockPanel Margin="5">
+                                    <TextBlock DockPanel.Dock="Right"></TextBlock>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock>
+										<Run Text="{Binding Path=ID}"></Run>
+										<Run> |</Run>
+										<Run Text="{Binding Path=Fam}"></Run>
+                                        <Run>  </Run>
+                                        <Run Text="{Binding Path=Imya}"></Run>
+                                        <Run>  </Run>
+                                        <Run Text="{Binding Path=Otch }"></Run>
+                                        <Run>  </Run>
+                                        </TextBlock>
+                                        <TextBlock>
+                                        <Run>Логин:</Run>
+										<Run Text="{Binding Path=Seria_Stud_Bil}"></Run>
+										<Run>  Пароль:</Run>
+										<Run Text="{Binding Path=Nomer_Stud_Bil}"></Run>
+                                        </TextBlock>
+                                        <TextBlock>
+                                        <Run>Дата рождения:</Run>
+										<Run Text="{Binding Path=Birth_date}"></Run>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DockPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Frame Name="frame" Grid.RowSpan="2"></Frame>
+    </Grid>
+</Page>
