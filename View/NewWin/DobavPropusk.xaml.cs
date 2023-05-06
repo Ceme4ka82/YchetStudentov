@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using YchetStudentov.Model.DataBase;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.ComponentModel;
 
 namespace YchetStudentov.View.NewWin
 {
@@ -25,7 +26,7 @@ namespace YchetStudentov.View.NewWin
     {
         StudYchetEntities entities = new StudYchetEntities();
         Poseshaemost pos;
-        public List<Students> DolList { get { return entities.Students.ToList(); } }
+        public List<Students> DolList { get { return entities.Students.Where(x => x.IDGruppi == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList(); ; }  }
         public DobavPropusk(Poseshaemost p)
         {
             InitializeComponent();
@@ -45,9 +46,10 @@ namespace YchetStudentov.View.NewWin
 
 
             DGProp.ItemsSource = entities.Sost_Poseshaem.Local.ToBindingList();
-
-            CmbPrep.ItemsSource = entities.Prepodovatel.ToList();
+            var preptxt = entities.Prepodovatel.Where(x => x.ID == Model.Classes.Set.user.ID).SingleOrDefault();
+            CmbPrep.Text = preptxt.Fam;
             CmbPred.ItemsSource = entities.Predmet.ToList();
+            cmbGrupp.ItemsSource = entities.Gruppa.ToList();
         }
 
         private void btnDobavitPropusk_Click(object sender, RoutedEventArgs e)
@@ -76,11 +78,11 @@ namespace YchetStudentov.View.NewWin
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (CmbPred.SelectedItem == null && CmbPrep.SelectedItem == null)
+            if (CmbPred.SelectedItem == null && CmbPrep.Text == null)
             {
                 MessageBox.Show("Выберите сотрудника!");
             }
-            else if (CmbPrep.SelectedItem != null)
+            else if (CmbPrep.Text != null)
             {
                 entities.SaveChanges();
             }
@@ -91,6 +93,16 @@ namespace YchetStudentov.View.NewWin
         private void DGProp_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = e.Row.GetIndex();
+        }
+
+        private void cmbGrupp_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnDobavitPropusk.IsEnabled = true;
+        }
+
+        private void ToMain_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate( new View.Pages.MainMenupage());
         }
     }
 }

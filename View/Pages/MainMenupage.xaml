@@ -10,6 +10,7 @@
 
     <Grid Background="Black">
         <Grid>
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -80,6 +81,7 @@
                     </Button.Template>
                 </Button>
             </Grid>
+        </Grid>
         </Grid>
         <Frame Name="frame"></Frame>
     </Grid>

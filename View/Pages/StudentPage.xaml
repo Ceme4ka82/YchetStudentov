@@ -9,6 +9,7 @@
       Title="StudentPage">
 
     <Grid Background="LightGray">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -96,6 +97,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Frame Name="frame" Grid.RowSpan="2"></Frame>
+        </Grid>
+        <Frame Name="frame"></Frame>
     </Grid>
 </Page>

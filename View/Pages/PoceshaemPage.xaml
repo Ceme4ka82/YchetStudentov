@@ -9,6 +9,7 @@
       Title="PoceshaemPage">
 
     <Grid Background="LightGray">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -64,7 +65,7 @@
                                 <DockPanel Margin="5">
                                     <TextBlock DockPanel.Dock="Right"></TextBlock>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding Data_}" x:Name="txtData" FontSize="25" Background="#66FFCC"></TextBlock>
+                                            <DatePickerTextBox Text="{Binding DataOnly, Mode=OneWay}" x:Name="txtData" FontSize="25" Background="#66FFCC"></DatePickerTextBox>
                                         <TextBlock>
                                             <Run>Преподователь:</Run>
                                             <Run Text="{Binding Prepodovatel.Fam}"></Run>
@@ -72,6 +73,10 @@
                                             <Run Text="{Binding Prepodovatel.Imya}"></Run>
                                             <Run> </Run>
                                             <Run Text="{Binding Prepodovatel.Otch}"></Run>
+                                        </TextBlock>
+                                        <TextBlock>
+                                            <Run>Предмет:</Run>
+                                            <Run Text="{Binding Students.Gruppa.Naim}"></Run>
                                         </TextBlock>
                                         <TextBlock>
                                             <Run>Предмет:</Run>
@@ -89,6 +94,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Frame Name="frame" Grid.RowSpan="2"></Frame>
+        </Grid>
+        <Frame Name="frame"></Frame>
     </Grid>
 </Page>

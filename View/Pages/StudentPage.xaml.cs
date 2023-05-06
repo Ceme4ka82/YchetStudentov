@@ -32,7 +32,7 @@ namespace YchetStudentov.View.Pages
 
         private void ToMain_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Navigate(new View.Pages.MainMenupage());
         }
 
         private void SaveWord_Click(object sender, RoutedEventArgs e)

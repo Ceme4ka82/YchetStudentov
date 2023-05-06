@@ -9,6 +9,7 @@
       Title="DobavPropusk">
 
     <Grid Background="LightGray">
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
@@ -19,10 +20,10 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Дата занятия:" Margin="10"  VerticalAlignment="Center"></TextBlock>
-                <DatePicker Name="daat" SelectedDate="{Binding Data_, Mode=TwoWay}" Margin="10" BorderBrush="Transparent" Background="Transparent"/>
+                <DatePicker Name="daat" SelectedDateFormat="Short" SelectedDate="{Binding Data_, Mode=TwoWay}" Margin="10" BorderBrush="Transparent" Background="Transparent" FontSize="14"/>
                 <TextBlock Text="Преподователь:" Margin="10" FontSize="14" VerticalAlignment="Center"></TextBlock>
-                <ComboBox Name="CmbPrep" Text="{Binding Prepodovatel}" SelectedItem="{Binding Prepodovatel}" DisplayMemberPath="Fam" Margin="10" Width="200"></ComboBox>
-                <TextBlock Text="Покупатель:" Margin="10" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Name="CmbPrep" Text="{Binding Prepodovatel}" Margin="10" Width="200"></TextBlock>
+                <TextBlock Text="Предмет:" Margin="10" VerticalAlignment="Center"></TextBlock>
                 <ComboBox Name="CmbPred" Text="{Binding Predmet}" SelectedItem="{Binding Predmet}" DisplayMemberPath="Naim"  Margin="10" Width="200"></ComboBox>
 
             </StackPanel>
@@ -30,7 +31,8 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button IsEnabled="True" Name="btnDobavitPropusk" Click="btnDobavitPropusk_Click"  Content="Добавить студента" 
+                <ComboBox Text="{Binding Gruppa}" Name="cmbGrupp" DisplayMemberPath="Naim" SelectionChanged="cmbGrupp_SelectionChanged"></ComboBox>
+                <Button IsEnabled="False" Name="btnDobavitPropusk" Click="btnDobavitPropusk_Click"  Content="Добавить студента" 
                         Width="240" Margin="5" FontSize="14"></Button>
                 <Button IsEnabled="False" Name="btnYdalitPropusk" Click="btnYdalitPropusk_Click"  Content="Удалить студента" 
                         Width="230" Margin="5" FontSize="14" BorderBrush="#ff2400"></Button>
@@ -38,10 +40,19 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                 <Button IsEnabled="False" Width="200" Margin="5"  Name="btnSave" Click="btnSave_Click"  Content="Сохранить" FontSize="14" Cursor="Hand"></Button>
+                <Button Name="ToMain" DockPanel.Dock="Right" Click="ToMain_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="35" Background="#66FFCC">
+                                <ContentPresenter Content="На главную" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </StackPanel>
         </StackPanel>
 
-        <DataGrid Background="Transparent" Grid.Row="2" Name="DGProp" AutoGenerateColumns="False"   VerticalAlignment="Top"
+        <DataGrid Background="Transparent" Grid.Row="2" Name="DGProp" AutoGenerateColumns="False"  VerticalAlignment="Top"
                   Margin="5"  FontSize="15" LoadingRow="DGProp_LoadingRow">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Студент" Width="*">
@@ -63,6 +74,7 @@
                 <DataGridTextColumn Header="Группа" Binding="{Binding Path=Students.Gruppa.Naim, Mode=OneWay}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Frame Name="frame" Grid.RowSpan="3"></Frame>
+        </Grid>
+        <Frame Name="frame"></Frame>
     </Grid>
 </Page>

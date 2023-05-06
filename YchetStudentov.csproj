@@ -73,6 +73,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Classes\AuthUser.cs" />
+    <Compile Include="Model\Classes\DataOnly.cs" />
     <Compile Include="Model\Classes\Kol_voGulyak.cs" />
     <Compile Include="Model\Classes\Set.cs" />
     <Compile Include="Model\DataBase\Base.Context.cs">
