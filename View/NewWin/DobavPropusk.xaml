@@ -21,7 +21,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Дата занятия:" Margin="10"  VerticalAlignment="Center"></TextBlock>
                     <DatePicker Name="daat" SelectedDateFormat="Short" SelectedDate="{Binding Data_}" DisplayDate="{Binding DateTime.Now}" Margin="10" BorderBrush="Transparent" Background="Transparent" FontSize="25"/>
-                <TextBlock Text="Преподователь:" Margin="10" FontSize="14" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Преподователь:" Name="txtprep" Margin="10" FontSize="14" VerticalAlignment="Center"></TextBlock>
                 <ComboBox Name="CmbPrep" Text="{Binding Prepodovatel}" SelectedItem="{Binding Prepodovatel}" DisplayMemberPath="Fam" Margin="10" Width="200"></ComboBox>
                 <TextBlock Text="Предмет:" Margin="10" VerticalAlignment="Center"></TextBlock>
                 <ComboBox Name="CmbPred" Text="{Binding Predmet}" SelectedItem="{Binding Predmet}" DisplayMemberPath="Naim"  Margin="10" Width="200"></ComboBox>

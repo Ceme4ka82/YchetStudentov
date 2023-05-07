@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using YchetStudentov.Model.DataBase;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.ComponentModel;
-using System.Security.Cryptography;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using YchetStudentov.Model.DataBase;
 
 namespace YchetStudentov.View.NewWin
 {
@@ -27,8 +15,8 @@ namespace YchetStudentov.View.NewWin
     {
         StudYchetEntities entities = new StudYchetEntities();
         Poseshaemost pos;
-        public List<Otmetka_pos> OtmetkaList { get { return entities.Otmetka_pos.ToList(); } } 
-        public List<Students> DolList { get { return entities.Students.Where(x => x.IDGruppi == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList(); ; }  }
+        public List<Otmetka_pos> OtmetkaList { get { return entities.Otmetka_pos.ToList(); } }
+        public List<Students> DolList { get { return entities.Students.Where(x => x.IDGruppi == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList(); ; } }
         public DobavPropusk(Poseshaemost p)
         {
             InitializeComponent();
@@ -52,18 +40,18 @@ namespace YchetStudentov.View.NewWin
             CmbPred.ItemsSource = entities.Predmet.ToList();
             cmbGrupp.ItemsSource = entities.Gruppa.ToList();
         }
-
         private void btnDobavitPropusk_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var spc = entities.Sost_Poseshaem.Where(x=>x.Students.Gruppa.ID == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList();
-
-                Sost_Poseshaem sp = new Sost_Poseshaem();
-                    DGProp.ItemsSource = spc;
+                var spcl = entities.Students.Where(x => x.Gruppa.ID == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList();
+                for (int i = 0; i < spcl.Count; i++)
+                {
+                    Sost_Poseshaem sp = new Sost_Poseshaem() { IDStud = spcl[i].ID };
                     pos.Sost_Poseshaem.Add(sp);
                     entities.Entry(sp).State = EntityState.Added;
-               
+                }
+
                 btnSave.IsEnabled = true;
                 btnYdalitPropusk.IsEnabled = true;
             }
@@ -104,7 +92,7 @@ namespace YchetStudentov.View.NewWin
                 MessageBox.Show("Сохранено");
                 frame.Navigate(new View.Pages.MainMenupage());
             }
-            catch(DbUpdateException ex)
+            catch (DbUpdateException ex)
             {
                 MessageBox.Show("При сохранении данных на сервере произошла ошибка." +
                          "\nДанные не были сохранены." +
@@ -124,7 +112,7 @@ namespace YchetStudentov.View.NewWin
 
         private void ToMain_Click(object sender, RoutedEventArgs e)
         {
-            frame.Navigate( new View.Pages.MainMenupage());
+            frame.Navigate(new View.Pages.MainMenupage());
         }
     }
 }
