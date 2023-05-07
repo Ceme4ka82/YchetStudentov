@@ -133,11 +133,11 @@
     <Compile Include="View\NewWin\DobavPropusk.xaml.cs">
       <DependentUpon>DobavPropusk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\NewWin\KartaStudenta.xaml.cs">
+      <DependentUpon>KartaStudenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\NewWin\NewPrepod.xaml.cs">
       <DependentUpon>NewPrepod.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\KartaStud.xaml.cs">
-      <DependentUpon>KartaStud.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\MainMenupage.xaml.cs">
       <DependentUpon>MainMenupage.xaml</DependentUpon>
@@ -177,11 +177,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\NewWin\NewPrepod.xaml">
+    <Page Include="View\NewWin\KartaStudenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\KartaStud.xaml">
+    <Page Include="View\NewWin\NewPrepod.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
