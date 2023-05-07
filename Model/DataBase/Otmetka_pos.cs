@@ -12,15 +12,18 @@ namespace YchetStudentov.Model.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Sost_Poseshaem
+    public partial class Otmetka_pos
     {
-        public int ID { get; set; }
-        public Nullable<int> IDPoseshaem { get; set; }
-        public Nullable<int> IDStud { get; set; }
-        public Nullable<int> IDOtmetki_Pos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Otmetka_pos()
+        {
+            this.Sost_Poseshaem = new HashSet<Sost_Poseshaem>();
+        }
     
-        public virtual Otmetka_pos Otmetka_pos { get; set; }
-        public virtual Poseshaemost Poseshaemost { get; set; }
-        public virtual Students Students { get; set; }
+        public int ID { get; set; }
+        public string Naim { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sost_Poseshaem> Sost_Poseshaem { get; set; }
     }
 }

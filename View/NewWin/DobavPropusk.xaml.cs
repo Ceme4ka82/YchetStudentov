@@ -26,6 +26,7 @@ namespace YchetStudentov.View.NewWin
     {
         StudYchetEntities entities = new StudYchetEntities();
         Poseshaemost pos;
+        public List<Otmetka_pos> OtmetkaList { get { return entities.Otmetka_pos.ToList(); } } 
         public List<Students> DolList { get { return entities.Students.Where(x => x.IDGruppi == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList(); ; }  }
         public DobavPropusk(Poseshaemost p)
         {
@@ -40,7 +41,7 @@ namespace YchetStudentov.View.NewWin
                 pos = p;
                 entities.Poseshaemost.Add(pos);
             }
-           // DataContext = pos;
+            DataContext = pos;
 
 
 

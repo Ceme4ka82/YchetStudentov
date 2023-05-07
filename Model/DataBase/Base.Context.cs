@@ -29,6 +29,7 @@ namespace YchetStudentov.Model.DataBase
     
         public virtual DbSet<Facultet> Facultet { get; set; }
         public virtual DbSet<Gruppa> Gruppa { get; set; }
+        public virtual DbSet<Otmetka_pos> Otmetka_pos { get; set; }
         public virtual DbSet<Poseshaemost> Poseshaemost { get; set; }
         public virtual DbSet<Predmet> Predmet { get; set; }
         public virtual DbSet<Prepodovatel> Prepodovatel { get; set; }

@@ -4,22 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="583b251f7f7a49cb9cbad08bb662298f" Name="Diagram1">
-        <EntityTypeShape EntityType="StudYchetModel.Facultet" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudYchetModel.Gruppa" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudYchetModel.Poseshaemost" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudYchetModel.Predmet" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudYchetModel.Prepodovatel" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudYchetModel.Sost_Poseshaem" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudYchetModel.Students" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudYchetModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="4e9a143f3d1d4f7abcaf384a78e2c755" Name="Diagram1">
+        <EntityTypeShape EntityType="StudYchetModel.Facultet" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.Gruppa" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.Otmetka_pos" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.Poseshaemost" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.Predmet" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.Prepodovatel" Width="1.5" PointX="3.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.Sost_Poseshaem" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.Students" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudYchetModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="StudYchetModel.FK__Facultet__IDGrup__2CF2ADDF" ManuallyRouted="false" />
         <AssociationConnector Association="StudYchetModel.FK__Students__IDGrup__2FCF1A8A" ManuallyRouted="false" />
+        <AssociationConnector Association="StudYchetModel.FK_Poseshaemost_Gruppa" ManuallyRouted="false" />
+        <AssociationConnector Association="StudYchetModel.FK_Sost_Poseshaem_Otmetka_pos" ManuallyRouted="false" />
         <AssociationConnector Association="StudYchetModel.FK__Poseshaem__IDPre__3493CFA7" ManuallyRouted="false" />
         <AssociationConnector Association="StudYchetModel.FK__Poseshaem__IDPre__3587F3E0" ManuallyRouted="false" />
         <AssociationConnector Association="StudYchetModel.FK__Sost_Pose__IDPos__3864608B" ManuallyRouted="false" />
         <AssociationConnector Association="StudYchetModel.FK__Sost_Pose__IDStu__395884C4" ManuallyRouted="false" />
-        <AssociationConnector Association="StudYchetModel.FK_Poseshaemost_Gruppa" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -72,7 +72,21 @@
                 <DataGridTextColumn Header="" Binding="{Binding Path=Students.Imya, Mode=OneWay}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="" Binding="{Binding Path=Students.Otch, Mode=OneWay}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Группа" Binding="{Binding Path=Students.Gruppa.Naim, Mode=OneWay}" Width="*"></DataGridTextColumn>
-            </DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Отметка о присутствии" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Otmetka_pos.Naim}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding Path=OtmetkaList, RelativeSource={RelativeSource AncestorType = Page}}" 
+                                      SelectedItem="{Binding Otmetka_pos,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Naim"></ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
         </DataGrid>
         </Grid>
         <Frame Name="frame"></Frame>

@@ -26,10 +26,10 @@ namespace YchetStudentov.Model.DataBase
         public Nullable<int> IDPredmeta { get; set; }
         public Nullable<int> IDGroop { get; set; }
     
+        public virtual Gruppa Gruppa { get; set; }
         public virtual Prepodovatel Prepodovatel { get; set; }
         public virtual Predmet Predmet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sost_Poseshaem> Sost_Poseshaem { get; set; }
-        public virtual Gruppa Gruppa { get; set; }
     }
 }
