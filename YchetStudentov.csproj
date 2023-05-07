@@ -131,6 +131,9 @@
     <Compile Include="View\NewWin\NewPrepod.xaml.cs">
       <DependentUpon>NewPrepod.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\KartaStud.xaml.cs">
+      <DependentUpon>KartaStud.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\MainMenupage.xaml.cs">
       <DependentUpon>MainMenupage.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\NewWin\NewPrepod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\KartaStud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

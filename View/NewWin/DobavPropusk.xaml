@@ -32,7 +32,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <ComboBox Text="{Binding Gruppa}" Name="cmbGrupp" DisplayMemberPath="Naim" SelectedItem="{Binding Gruppa}" SelectionChanged="cmbGrupp_SelectionChanged"></ComboBox>
-                <Button IsEnabled="False" Name="btnDobavitPropusk" Click="btnDobavitPropusk_Click"  Content="Добавить студента" 
+                <Button IsEnabled="False" Name="btnDobavitPropusk" Click="btnDobavitPropusk_Click"  Content="Добавить студентов" 
                         Width="240" Margin="5" FontSize="14"></Button>
                 <Button IsEnabled="False" Name="btnYdalitPropusk" Click="btnYdalitPropusk_Click"  Content="Удалить студента" 
                         Width="230" Margin="5" FontSize="14" BorderBrush="#ff2400"></Button>

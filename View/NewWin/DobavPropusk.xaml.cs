@@ -53,12 +53,24 @@ namespace YchetStudentov.View.NewWin
 
         private void btnDobavitPropusk_Click(object sender, RoutedEventArgs e)
         {
-            Sost_Poseshaem sp = new Sost_Poseshaem();
-            pos.Sost_Poseshaem.Add(sp);
-            entities.Entry(sp).State = EntityState.Added;
-            
-            btnSave.IsEnabled = true;
-            btnYdalitPropusk.IsEnabled = true;
+            try
+            {
+                var spc = entities.Students.Where(x => x.IDGruppi == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList();
+                for (int i = 0; i < spc.Count + 1; i++)
+                {
+                    Sost_Poseshaem sp = new Sost_Poseshaem() { IDStud = i };
+                    pos.Sost_Poseshaem.Add(sp);
+                    entities.Entry(sp).State = EntityState.Added;
+                }
+                btnSave.IsEnabled = true;
+                btnYdalitPropusk.IsEnabled = true;
+            }
+            catch (DbUpdateException ex)
+            {
+                MessageBox.Show("При добавлении данных на сервере произошла ошибка." +
+                         "\nДанные не были добавлены." +
+                         "\n Исключение: " + ex.InnerException.InnerException.Message);
+            }
         }
 
         private void btnYdalitPropusk_Click(object sender, RoutedEventArgs e)
@@ -77,16 +89,25 @@ namespace YchetStudentov.View.NewWin
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (CmbPred.SelectedItem == null && CmbPrep.Text == null)
+            try
             {
-                MessageBox.Show("Выберите сотрудника!");
+                if (CmbPred.SelectedItem == null && CmbPrep.Text == null)
+                {
+                    MessageBox.Show("Выберите сотрудника!");
+                }
+                else if (CmbPrep.Text != null)
+                {
+                    entities.SaveChanges();
+                }
+                MessageBox.Show("Сохранено");
+                frame.Navigate(new View.Pages.MainMenupage());
             }
-            else if (CmbPrep.Text != null)
+            catch(DbUpdateException ex)
             {
-                entities.SaveChanges();
+                MessageBox.Show("При сохранении данных на сервере произошла ошибка." +
+                         "\nДанные не были сохранены." +
+                         "\n Исключение: " + ex.InnerException.InnerException.Message);
             }
-            MessageBox.Show("Сохранено");
-            frame.Navigate(new View.Pages.MainMenupage());
         }
 
         private void DGProp_LoadingRow(object sender, DataGridRowEventArgs e)
