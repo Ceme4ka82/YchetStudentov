@@ -16,6 +16,7 @@ using YchetStudentov.Model.DataBase;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.ComponentModel;
+using System.Security.Cryptography;
 
 namespace YchetStudentov.View.NewWin
 {
@@ -56,13 +57,13 @@ namespace YchetStudentov.View.NewWin
         {
             try
             {
-                var spc = entities.Students.Where(x => x.IDGruppi == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList();
-                for (int i = 0; i < spc.Count + 1; i++)
-                {
-                    Sost_Poseshaem sp = new Sost_Poseshaem() { IDStud = i };
+                var spc = entities.Sost_Poseshaem.Where(x=>x.Students.Gruppa.ID == ((Gruppa)cmbGrupp.SelectedItem).ID).ToList();
+
+                Sost_Poseshaem sp = new Sost_Poseshaem();
+                    DGProp.ItemsSource = spc;
                     pos.Sost_Poseshaem.Add(sp);
                     entities.Entry(sp).State = EntityState.Added;
-                }
+               
                 btnSave.IsEnabled = true;
                 btnYdalitPropusk.IsEnabled = true;
             }

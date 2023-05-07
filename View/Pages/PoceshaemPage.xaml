@@ -52,36 +52,48 @@
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <ListView Name="PrepodView" MouseDoubleClick="PrepodView_MouseDoubleClick"  FontSize="18">
-                <ListView.ItemTemplate>
-                    <DataTemplate >
-                        <Border CornerRadius="35" Background="#66FFCC" >
-                            <Grid>
-                                <Grid.ToolTip>
-                                    <ToolTip FontSize="15">
-                                        Для изменения информации нажмите дважды на запись
-                                    </ToolTip>
-                                </Grid.ToolTip>
-                                <DockPanel Margin="5">
-                                    <TextBlock DockPanel.Dock="Right"></TextBlock>
-                                    <StackPanel Orientation="Vertical">
+                <ListView Name="PrepodView" MouseDoubleClick="PrepodView_MouseDoubleClick"  FontSize="18">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                ItemWidth="{Binding (ListView.View).ItemWidth, 
+                                RelativeSource={RelativeSource AncestorType=ListView}}"
+                                MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+                                ItemHeight="{Binding (ListView.View).ItemHeight, 
+                                RelativeSource={RelativeSource AncestorType=ListView}}" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+
+                            <Border CornerRadius="35" Background="#66FFCC" >
+                                <Grid>
+                                    <Grid.ToolTip>
+                                        <ToolTip FontSize="15">
+                                            Для изменения информации нажмите дважды на запись
+                                        </ToolTip>
+                                    </Grid.ToolTip>
+                                    <DockPanel Margin="5">
+                                        <TextBlock DockPanel.Dock="Right"></TextBlock>
+                                        <StackPanel Orientation="Vertical">
                                             <TextBlock Text="{Binding DataOnly}" x:Name="txtData" FontSize="25" Background="#66FFCC"></TextBlock>
-                                        <TextBlock>
+                                            <TextBlock>
                                             <Run>Преподователь:</Run>
                                             <Run Text="{Binding Prepodovatel.Fam}"></Run>
                                             <Run> </Run>
                                             <Run Text="{Binding Prepodovatel.Imya}"></Run>
                                             <Run> </Run>
                                             <Run Text="{Binding Prepodovatel.Otch}"></Run>
-                                        </TextBlock>
-                                        <TextBlock>
+                                            </TextBlock>
+                                            <TextBlock>
                                             <Run>Группа:</Run>
                                             <Run Text="{Binding Gruppa.Naim}"></Run>
-                                        </TextBlock>
-                                        <TextBlock>
+                                            </TextBlock>
+                                            <TextBlock>
                                             <Run>Предмет:</Run>
                                             <Run Text="{Binding Predmet.Naim}"></Run>
-                                        </TextBlock>
+                                            </TextBlock>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock>
                                             <Run>Отсутсвовало:</Run>
@@ -90,14 +102,15 @@
                                                     <Run Text="{Binding BiloVsego,Mode=OneWay}"></Run>
                                                 </TextBlock>
                                             </StackPanel>
-                                    </StackPanel>
-                                </DockPanel>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </Grid>
         <Frame Name="frame"></Frame>
     </Grid>

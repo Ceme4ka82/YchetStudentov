@@ -74,6 +74,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\Classes\AuthUser.cs" />
     <Compile Include="Model\Classes\DataOnly.cs" />
+    <Compile Include="Model\Classes\DataOnlyStud.cs" />
     <Compile Include="Model\Classes\NotifyClass.cs" />
     <Compile Include="Model\Classes\Schetchik.cs" />
     <Compile Include="Model\Classes\Set.cs" />

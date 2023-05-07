@@ -79,15 +79,19 @@
                                         <Run Text="{Binding Path=Otch }"></Run>
                                         <Run>  </Run>
                                         </TextBlock>
-                                        <TextBlock>
-                                        <Run>Логин:</Run>
+                                            <TextBlock>
+                                        <Run>Группа:</Run>
+										<Run Text="{Binding Path=Gruppa.Naim}"></Run>
+                                            </TextBlock>
+                                            <TextBlock>
+                                        <Run>Серия студентческого билета:</Run>
 										<Run Text="{Binding Path=Seria_Stud_Bil}"></Run>
-										<Run>  Пароль:</Run>
+										<Run>  Номер студентческого билета:</Run>
 										<Run Text="{Binding Path=Nomer_Stud_Bil}"></Run>
                                         </TextBlock>
                                         <TextBlock>
                                         <Run>Дата рождения:</Run>
-										<Run Text="{Binding Path=Birth_date}"></Run>
+										<Run Text="{Binding Path=DataOnly,Mode=OneWay}"></Run>
                                         </TextBlock>
                                     </StackPanel>
                                 </DockPanel>
