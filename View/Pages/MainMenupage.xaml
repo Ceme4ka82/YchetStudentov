@@ -70,7 +70,7 @@
                                     <ContentPresenter.Content>
                                         <Grid>
                                             <DockPanel>
-                                                <Image DockPanel.Dock="Left" Source="\Resources\StatsIcon.png"></Image>
+                                                <Image DockPanel.Dock="Left" Source="\Resources\StudentsIcon.png"></Image>
                                                 <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="22">Студенты</TextBlock>
                                             </DockPanel>
                                         </Grid>

@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YchetStudentov.View.NewWin"
         mc:Ignorable="d"
-        Title="KartaStudenta" Height="450" Width="800">
-    <Grid>
-        
+        Title="KartaStudenta" Height="480" Width="800">
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">Карта студента №</TextBlock>
+            <TextBlock Text="{Binding ID}" Name="txtID"></TextBlock>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Фамилия:</TextBlock>
+                        <TextBox Name="txtFam" Text="{Binding Fam}"></TextBox>
+                        <TextBlock>Имя:</TextBlock>
+                        <TextBox Name="txtImya" Text="{Binding Imya}"></TextBox>
+                        <TextBlock>Отчество:</TextBlock>
+                        <TextBox Name="txtOtch" Text="{Binding Otch}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Группа:</TextBlock>
+                        <ComboBox Name="cmbGrupp" Text="{Binding Gruppa}" SelectedItem="{Binding Gruppa}" DisplayMemberPath="Naim"></ComboBox>
+                        <TextBlock>Дата рождения:</TextBlock>
+                        <DatePicker Name="DPBD" FontSize="25" SelectedDate="{Binding Birth_date, Mode=TwoWay}"></DatePicker>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Студентческий билет:</TextBlock>
+                        <TextBlock>Серия:</TextBlock>
+                        <TextBox Name="txtSSB" Text="{Binding Seria_Stud_Bil}"></TextBox>
+                        <TextBlock>Номер:</TextBlock>
+                        <TextBox Name="NSB" Text="{Binding Nomer_Stud_Bil}"></TextBox>
+                    </StackPanel>
+                    <Button Name="Save" Click="Save_Click">Сохранить</Button>
+                </StackPanel>
+
+            
+        </Grid>
     </Grid>
 </Window>

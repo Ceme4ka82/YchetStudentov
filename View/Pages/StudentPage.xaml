@@ -32,7 +32,6 @@
                 <Menu  Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Background="White" Foreground="Black">
                     <MenuItem Header="Сохранить" Background="Aquamarine">
                         <MenuItem Header="Сохранить как Word" Name="SaveWord" Click="SaveWord_Click"></MenuItem>
-                        <MenuItem Header="Сохранить как Exel" Name="SaveExel" Click="SaveExel_Click"></MenuItem>
                     </MenuItem>
                 </Menu>
                 <Button Name="NewStud" DockPanel.Dock="Left" Width="150" Click="NewStud_Click">
@@ -57,7 +56,18 @@
         </Grid>
         <Grid Grid.Row="2">
             <ListView Name="StudView" MouseDoubleClick="StudView_MouseDoubleClick"  FontSize="18">
-                <ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                ItemWidth="{Binding (ListView.View).ItemWidth, 
+                                RelativeSource={RelativeSource AncestorType=ListView}}"
+                                MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+                                ItemHeight="{Binding (ListView.View).ItemHeight, 
+                                RelativeSource={RelativeSource AncestorType=ListView}}" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
                     <DataTemplate >
                         <Border CornerRadius="35" Background="#66FFCC" >
                             <Grid>
@@ -84,12 +94,13 @@
 										<Run Text="{Binding Path=Gruppa.Naim}"></Run>
                                             </TextBlock>
                                             <TextBlock>
-                                        <Run>Серия студентческого билета:</Run>
-										<Run Text="{Binding Path=Seria_Stud_Bil}"></Run>
-										<Run>  Номер студентческого билета:</Run>
-										<Run Text="{Binding Path=Nomer_Stud_Bil}"></Run>
-                                        </TextBlock>
-                                        <TextBlock>
+                                        <Run>Студенческий билет:</Run>
+                                                <Run>Серия:</Run>
+										<Run Text="{Binding Seria_Stud_Bil}"></Run>
+                                                <Run>Номер:</Run>
+										<Run Text="{Binding Nomer_Stud_Bil}"></Run>
+                                            </TextBlock>
+                                            <TextBlock>
                                         <Run>Дата рождения:</Run>
 										<Run Text="{Binding Path=DataOnly,Mode=OneWay}"></Run>
                                         </TextBlock>

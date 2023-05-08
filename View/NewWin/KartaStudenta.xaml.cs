@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,22 @@ namespace YchetStudentov.View.NewWin
         {
             InitializeComponent();
             this.entities = entities;
+            this.DataContext = students;
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                entities.SaveChanges();
+                this.Close();
+            }
+            catch(DbUpdateException ex)
+            {
+                MessageBox.Show("При добавлении/Изменении данных на сервере произошла ошибка." +
+                         "\nДанные не были добавлены/Изменены." +
+                         "\n Исключение: " + ex.InnerException.InnerException.Message,"Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
         }
     }
 }
