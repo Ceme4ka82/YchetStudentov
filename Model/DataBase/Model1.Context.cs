@@ -27,7 +27,6 @@ namespace YchetStudentov.Model.DataBase
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Facultet> Facultet { get; set; }
         public virtual DbSet<Gruppa> Gruppa { get; set; }
         public virtual DbSet<Otmetka_pos> Otmetka_pos { get; set; }
         public virtual DbSet<Poseshaemost> Poseshaemost { get; set; }

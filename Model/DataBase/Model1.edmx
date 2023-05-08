@@ -5,14 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище StudYchetModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Facultet">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Naim" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="IDGruppi" Type="int" />
-        </EntityType>
         <EntityType Name="Gruppa">
           <Key>
             <PropertyRef Name="ID" />
@@ -87,18 +79,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__Facultet__IDGrup__2CF2ADDF">
-          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="0..1" />
-          <End Role="Facultet" Type="Self.Facultet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gruppa">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Facultet">
-              <PropertyRef Name="IDGruppi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Poseshaem__IDPre__3493CFA7">
           <End Role="Prepodovatel" Type="Self.Prepodovatel" Multiplicity="0..1" />
           <End Role="Poseshaemost" Type="Self.Poseshaemost" Multiplicity="*" />
@@ -217,7 +197,6 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище StudYchetModelContainer">
-          <EntitySet Name="Facultet" EntityType="Self.Facultet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gruppa" EntityType="Self.Gruppa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Otmetka_pos" EntityType="Self.Otmetka_pos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Poseshaemost" EntityType="Self.Poseshaemost" Schema="dbo" store:Type="Tables" />
@@ -226,10 +205,6 @@
           <EntitySet Name="Sost_Poseshaem" EntityType="Self.Sost_Poseshaem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Facultet__IDGrup__2CF2ADDF" Association="Self.FK__Facultet__IDGrup__2CF2ADDF">
-            <End Role="Gruppa" EntitySet="Gruppa" />
-            <End Role="Facultet" EntitySet="Facultet" />
-          </AssociationSet>
           <AssociationSet Name="FK__Poseshaem__IDPre__3493CFA7" Association="Self.FK__Poseshaem__IDPre__3493CFA7">
             <End Role="Prepodovatel" EntitySet="Prepodovatel" />
             <End Role="Poseshaemost" EntitySet="Poseshaemost" />
@@ -264,22 +239,12 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudYchetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Facultet">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Naim" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IDGruppi" Type="Int32" />
-          <NavigationProperty Name="Gruppa" Relationship="Self.FK__Facultet__IDGrup__2CF2ADDF" FromRole="Facultet" ToRole="Gruppa" />
-        </EntityType>
         <EntityType Name="Gruppa">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naim" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Facultet" Relationship="Self.FK__Facultet__IDGrup__2CF2ADDF" FromRole="Gruppa" ToRole="Facultet" />
           <NavigationProperty Name="Students" Relationship="Self.FK__Students__IDGrup__2FCF1A8A" FromRole="Gruppa" ToRole="Students" />
           <NavigationProperty Name="Poseshaemost" Relationship="Self.FK_Poseshaemost_Gruppa" FromRole="Gruppa" ToRole="Poseshaemost" />
         </EntityType>
@@ -362,18 +327,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK__Facultet__IDGrup__2CF2ADDF">
-          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="0..1" />
-          <End Role="Facultet" Type="Self.Facultet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gruppa">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Facultet">
-              <PropertyRef Name="IDGruppi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Students__IDGrup__2FCF1A8A">
           <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="0..1" />
           <End Role="Students" Type="Self.Students" Multiplicity="*" />
@@ -461,7 +414,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="StudYchetEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Facultet" EntityType="Self.Facultet" />
           <EntitySet Name="Gruppa" EntityType="Self.Gruppa" />
           <EntitySet Name="Otmetka_pos" EntityType="Self.Otmetka_pos" />
           <EntitySet Name="Poseshaemost" EntityType="Self.Poseshaemost" />
@@ -470,10 +422,6 @@
           <EntitySet Name="Sost_Poseshaem" EntityType="Self.Sost_Poseshaem" />
           <EntitySet Name="Students" EntityType="Self.Students" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <AssociationSet Name="FK__Facultet__IDGrup__2CF2ADDF" Association="Self.FK__Facultet__IDGrup__2CF2ADDF">
-            <End Role="Gruppa" EntitySet="Gruppa" />
-            <End Role="Facultet" EntitySet="Facultet" />
-          </AssociationSet>
           <AssociationSet Name="FK__Students__IDGrup__2FCF1A8A" Association="Self.FK__Students__IDGrup__2FCF1A8A">
             <End Role="Gruppa" EntitySet="Gruppa" />
             <End Role="Students" EntitySet="Students" />
@@ -550,15 +498,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище StudYchetModelContainer" CdmEntityContainer="StudYchetEntities">
-          <EntitySetMapping Name="Facultet">
-            <EntityTypeMapping TypeName="StudYchetModel.Facultet">
-              <MappingFragment StoreEntitySet="Facultet">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Naim" ColumnName="Naim" />
-                <ScalarProperty Name="IDGruppi" ColumnName="IDGruppi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Gruppa">
             <EntityTypeMapping TypeName="StudYchetModel.Gruppa">
               <MappingFragment StoreEntitySet="Gruppa">

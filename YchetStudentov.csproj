@@ -74,54 +74,6 @@
     <Compile Include="Model\Classes\NotifyClass.cs" />
     <Compile Include="Model\Classes\Schetchik.cs" />
     <Compile Include="Model\Classes\Set.cs" />
-    <Compile Include="Model\DataBase\Base.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Base.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Base.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Base.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Base.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Facultet.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Gruppa.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Otmetka_pos.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Poseshaemost.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Predmet.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Prepodovatel.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Sost_Poseshaem.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\Students.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBase\sysdiagrams.cs">
-      <DependentUpon>Base.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\VMAuth.cs" />
     <Compile Include="View\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -224,13 +176,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\DataBase\Base.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Base.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\DataBase\Base.edmx.diagram">
-      <DependentUpon>Base.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -246,22 +191,14 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\DataBase\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\StatsIcon.png" />
     <Resource Include="Resources\PrepodIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\DataBase\Base.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Base.edmx</DependentUpon>
-      <LastGenOutput>Base.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\DataBase\Base.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Base.edmx</DependentUpon>
-      <LastGenOutput>Base.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\SettingIcon.png" />
     <Resource Include="Resources\StudentsIcon.png" />
   </ItemGroup>
