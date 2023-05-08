@@ -42,7 +42,7 @@ namespace YchetStudentov.View.Pages
 
         private void btn_SluzhInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Navigate(new View.Pages.SluzhebPage());
         }
     }
 }

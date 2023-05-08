@@ -30,10 +30,6 @@
                         <TextBox Name="Otch" Foreground="Black" Background="Aqua" BorderBrush="Aqua" Text="{Binding Path=Otch}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
-                        <TextBlock>Предмет:</TextBlock>
-                        <ComboBox Name="cmb_pred" Text="{Binding Predmet}" SelectedItem="{Binding Predmet}" DisplayMemberPath="Naim"></ComboBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock>Логин:</TextBlock>
                         <TextBox Name="Log" Foreground="Black" Background="Aqua" BorderBrush="Aqua" Text="{Binding Path=Loginn}"></TextBox>
                     </StackPanel>

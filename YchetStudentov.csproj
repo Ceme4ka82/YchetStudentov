@@ -74,6 +74,51 @@
     <Compile Include="Model\Classes\NotifyClass.cs" />
     <Compile Include="Model\Classes\Schetchik.cs" />
     <Compile Include="Model\Classes\Set.cs" />
+    <Compile Include="Model\DataBase\Gruppa.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Otmetka_pos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Poseshaemost.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Predmet.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Prepodovatel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Sost_Poseshaem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\Students.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\VMAuth.cs" />
     <Compile Include="View\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -87,17 +132,29 @@
     <Compile Include="View\NewWin\NewPrepod.xaml.cs">
       <DependentUpon>NewPrepod.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\GruppaPage.xaml.cs">
+      <DependentUpon>GruppaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\MainMenupage.xaml.cs">
       <DependentUpon>MainMenupage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\OtmetkaPage.xaml.cs">
+      <DependentUpon>OtmetkaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\PoceshaemPage.xaml.cs">
       <DependentUpon>PoceshaemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PredmetPage.xaml.cs">
+      <DependentUpon>PredmetPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PrepodovateliPage.xaml.cs">
       <DependentUpon>PrepodovateliPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\SettingsPolPage.xaml.cs">
       <DependentUpon>SettingsPolPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\SluzhebPage.xaml.cs">
+      <DependentUpon>SluzhebPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\StudentPage.xaml.cs">
       <DependentUpon>StudentPage.xaml</DependentUpon>
@@ -133,11 +190,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\GruppaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\MainMenupage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\OtmetkaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\PoceshaemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PredmetPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\SettingsPolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\SluzhebPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +249,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\DataBase\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\DataBase\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -191,9 +271,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\DataBase\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\StatsIcon.png" />
     <Resource Include="Resources\PrepodIcon.png" />
@@ -201,6 +279,18 @@
   <ItemGroup>
     <Resource Include="Resources\SettingIcon.png" />
     <Resource Include="Resources\StudentsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\DataBase\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DataBase\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

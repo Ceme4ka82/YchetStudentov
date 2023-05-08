@@ -1,0 +1,31 @@
+﻿<Page x:Class="YchetStudentov.View.Pages.SluzhebPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YchetStudentov.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SluzhebPage">
+
+    <Grid Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="btnGrup" Click="btnGrup_Click">Группа</Button>
+                    <Button Name="btnOtmetka" Click="btnOtmetka_Click">Отметка посещаемости</Button>
+                    <Button Name="btnPredmet" Click="btnPredmet_Click">Предмет</Button>
+                    <Button Name="ToMain" Click="ToMain_Click">На главную</Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Frame Name="pageFrame" NavigationUIVisibility="Hidden"></Frame>
+            </Grid>
+        </Grid>
+        <Frame Name="frame"></Frame>
+    </Grid>
+</Page>

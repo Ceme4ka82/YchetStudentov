@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:YchetStudentov"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="Window">
+            <Setter Property="Icon" Value="\Resources\Icon.png"></Setter>
+        </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Times New Roman"></Setter>
             <Setter Property="FontSize" Value="25"></Setter>
