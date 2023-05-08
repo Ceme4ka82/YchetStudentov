@@ -39,5 +39,10 @@ namespace YchetStudentov.View.Pages
         {
             frame.Navigate(new View.Pages.StudentPage());
         }
+
+        private void btn_SluzhInfo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

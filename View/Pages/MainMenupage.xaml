@@ -31,7 +31,7 @@
                                         <Grid>
                                             <DockPanel>
                                                 <Image Source="\Resources\PrepodIcon.png" DockPanel.Dock="Left"></Image>
-                                                <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="22">Преподователи</TextBlock>
+                                                <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="25">Преподователи</TextBlock>
                                             </DockPanel>
                                         </Grid>
                                     </ContentPresenter.Content>
@@ -51,7 +51,7 @@
                                         <Grid>
                                             <DockPanel>
                                                 <Image DockPanel.Dock="Left" Source="\Resources\StatsIcon.png"></Image>
-                                                <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="22">Посещаемость</TextBlock>
+                                                <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="25">Посещаемость</TextBlock>
                                             </DockPanel>
                                         </Grid>
                                     </ContentPresenter.Content>
@@ -81,7 +81,27 @@
                     </Button.Template>
                 </Button>
             </Grid>
-        </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Button Name="btn_SluzhInfo" Click="btn_SluzhInfo_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="25" Background="White">
+                                    <ContentPresenter>
+                                        <ContentPresenter.Content>
+                                            <Grid>
+                                                <DockPanel>
+                                                    <Image Source="\Resources\SettingIcon.png"></Image>
+                                                    <TextBlock DockPanel.Dock="Right" TextWrapping="Wrap" FontSize="20">Внутрення настройка</TextBlock>
+                                                </DockPanel>
+                                            </Grid>
+                                        </ContentPresenter.Content>
+                                    </ContentPresenter>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </Grid>
         </Grid>
         <Frame Name="frame"></Frame>
     </Grid>

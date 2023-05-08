@@ -79,7 +79,7 @@
                                 <DockPanel Margin="5">
                                     <TextBlock DockPanel.Dock="Right"></TextBlock>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock>
+                                            <TextBlock>
 										<Run Text="{Binding Path=ID}"></Run>
 										<Run> |</Run>
 										<Run Text="{Binding Path=Fam}"></Run>
@@ -88,7 +88,7 @@
                                         <Run>  </Run>
                                         <Run Text="{Binding Path=Otch }"></Run>
                                         <Run>  </Run>
-                                        </TextBlock>
+                                            </TextBlock>
                                             <TextBlock>
                                         <Run>Группа:</Run>
 										<Run Text="{Binding Path=Gruppa.Naim}"></Run>

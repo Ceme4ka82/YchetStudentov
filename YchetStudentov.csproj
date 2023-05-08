@@ -262,6 +262,7 @@
       <DependentUpon>Base.edmx</DependentUpon>
       <LastGenOutput>Base.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\SettingIcon.png" />
     <Resource Include="Resources\StudentsIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
