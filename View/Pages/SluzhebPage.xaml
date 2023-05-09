@@ -26,6 +26,6 @@
                 <Frame Name="pageFrame" NavigationUIVisibility="Hidden"></Frame>
             </Grid>
         </Grid>
-        <Frame Name="frame"></Frame>
+        <Frame Name="frame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Page>
